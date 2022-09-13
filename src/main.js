@@ -55,13 +55,34 @@ server.get('/dad-jokes/:id', (req, res) => {
     }
 })
 
-// POST       | /dad-jokes      
+// POST       | /dad-jokes    
+
+server.post('/dad-jokes', (req, res) => {
+    const newDadJokeData = req.body;
+
+    try {
+        if (!isValidJokeData(newDadJokeData)) throw ({ 
+            message: 'Prastas humoro jausmas ', 
+            status: 400 
+        });
+
+        const newDadJoke = {
+            id: createId(),
+            ...newDadJokeData
+        }
+
+        database.dadJokes.push(newDadJoke)
+        
+        res.status(201).json(newDadJoke)
+
+    } catch ({ status, message }) {
+        res.status(status).json({ message })
+    }
+})
 
 // PUT        | /dad-jokes/:id  
 
-// PATCH      | /dad-jokes/:id
-
-server.patch('/dad-jokes/:id', (req, res) => {
+server.put('/dad-jokes/:id', (req, res) => {
     const dadJokeID = req.params.id;
     const newDadJokeData = req.body;
     
@@ -70,6 +91,7 @@ server.patch('/dad-jokes/:id', (req, res) => {
             message: 'Prastas humoro jausmas ', 
             status: 400 
         });
+
         const foundDadJoke = findDadJoke(dadJokeID);
 
         if (foundDadJoke === undefined) throw ({ 
@@ -84,10 +106,36 @@ server.patch('/dad-jokes/:id', (req, res) => {
 
     } catch ({ status, message }) {
         res.status(status).json(message)
-
-        return;
     }
+});
 
+// PATCH      | /dad-jokes/:id
+
+server.patch('/dad-jokes/:id', (req, res) => {
+    const dadJokeID = req.params.id;
+    const newDadJokeData = req.body;
+    
+    try {
+        if (!isValidJokeData(newDadJokeData)) throw ({ 
+            message: 'Prastas humoro jausmas ', 
+            status: 400 
+        });
+        
+        const foundDadJoke = findDadJoke(dadJokeID);
+
+        if (foundDadJoke === undefined) throw ({ 
+            message: 'Serveris nepagavo bajerio', 
+            status: 404 
+        });
+
+        foundDadJoke.punchline = newDadJokeData.punchline;
+        foundDadJoke.question = newDadJokeData.question;
+    
+        res.status(200).json(foundDadJoke)
+
+    } catch ({ status, message }) {
+        res.status(status).json(message)
+    }
 });
 
 // DELETE     | /dad-jokes/:id 
