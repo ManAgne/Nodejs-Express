@@ -17,9 +17,16 @@ const database = {
     }]
 };
 
+let currentId = 2;
+createId = () => ++currentId;
+
 const isValidJokeData = ({ question, punchline }) => (
     question !== undefined && typeof question === 'string' && question !== '' &&
     punchline !== undefined && typeof punchline === 'string' && punchline !== '')
+
+const createCmpbyId = (dadJokeIdStr) => ({ id }) => id === Number(dadJokeIdStr);
+
+const findDadJoke = (dadJokeIdStr) => database.dadJokes.find(createCmpbyId(dadJokeIdStr));
 
 server.get('/', (req, res) => {
     res.send('Atsakymas')
@@ -27,14 +34,25 @@ server.get('/', (req, res) => {
 
 // GET        | /dad-jokes      
 server.get('/dad-jokes', (req, res) => {
-  res.status(400).json(database.dadJokes);
+  res.status(200).json(database.dadJokes);
 })
 
 // GET        | /dad-jokes/:id 
 
 server.get('/dad-jokes/:id', (req, res) => {
     const dadJokeID = req.params.id;
-    res.status(400).json(database.dadJokes.find(x => x.id === Number(dadJokeID)));
+
+    try {
+        const dadJoke = findDadJoke(dadJokeID);
+        if(dadJoke === undefined) throw ({
+            message: 'Serveris nepagavo bajerio',
+            status: 404
+        });
+
+    res.status(200).json(dadJoke)
+    } catch ({ status, message }) {
+        res.status(status).json({ message })
+    }
 })
 
 // POST       | /dad-jokes      
@@ -52,17 +70,17 @@ server.patch('/dad-jokes/:id', (req, res) => {
             message: 'Prastas humoro jausmas ', 
             status: 400 
         });
-        const existingDadJoke = database.dadJokes.find(x => x.id === Number(dadJokeID))
+        const foundDadJoke = findDadJoke(dadJokeID);
 
-        if (existingDadJoke === undefined) throw ({ 
+        if (foundDadJoke === undefined) throw ({ 
             message: 'Serveris nepagavo bajerio', 
             status: 404 
-        })
+        });
 
-        existingDadJoke.punchline = newDadJokeData.punchline;
-        existingDadJoke.question = newDadJokeData.question;
+        foundDadJoke.punchline = newDadJokeData.punchline;
+        foundDadJoke.question = newDadJokeData.question;
     
-        res.status(200).json(existingDadJoke)
+        res.status(200).json(foundDadJoke)
 
     } catch ({ status, message }) {
         res.status(status).json(message)
@@ -70,7 +88,7 @@ server.patch('/dad-jokes/:id', (req, res) => {
         return;
     }
 
-})
+});
 
 // DELETE     | /dad-jokes/:id 
 
