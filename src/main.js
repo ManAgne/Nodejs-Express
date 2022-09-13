@@ -92,15 +92,19 @@ server.put('/dad-jokes/:id', (req, res) => {
             status: 400 
         });
 
-        const foundDadJoke = findDadJoke(dadJokeID);
+        const foundDadJokeIndex = database.dadJokes.findIndex(createCmpbyId(dadJokeID));
 
-        if (foundDadJoke === undefined) throw ({ 
+        if (foundDadJokeIndex === -1) throw ({ 
             message: 'Serveris nepagavo bajerio', 
             status: 404 
         });
 
-        foundDadJoke.punchline = newDadJokeData.punchline;
-        foundDadJoke.question = newDadJokeData.question;
+        const updatedDadJoke = {
+            id: database.dadJokes[foundDadJokeIndex],
+            ...newDadJokeData
+        }
+
+        database.dadJokes[foundDadJokeIndex] = updatedDadJoke;
     
         res.status(200).json(foundDadJoke)
 
@@ -120,7 +124,7 @@ server.patch('/dad-jokes/:id', (req, res) => {
             message: 'Prastas humoro jausmas ', 
             status: 400 
         });
-        
+
         const foundDadJoke = findDadJoke(dadJokeID);
 
         if (foundDadJoke === undefined) throw ({ 
