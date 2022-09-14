@@ -1,14 +1,8 @@
 let currentId = 2;
 const createId = () => ++currentId;
 
-const isValidJokeData = ({ question, punchline }) =>
-  question !== undefined && typeof question === 'string' && question !== '' &&
-  punchline !== undefined && typeof punchline === 'string' && punchline !== '';
-
-const createCmpById = (dadJokeIdStr) => ({ id }) => id === Number(dadJokeIdStr);
-
 const removeEmptyProps = (obj) => Object.entries(obj).reduce((prevResult, [key, value]) => {
-  if (value !== undefined && value !== null) {
+  if (value !== undefined) {
     prevResult[key] = value
   }
 
@@ -17,7 +11,5 @@ const removeEmptyProps = (obj) => Object.entries(obj).reduce((prevResult, [key, 
 
 module.exports = {
   createId,
-  isValidJokeData,
-  createCmpById,
   removeEmptyProps,
-}
+};
