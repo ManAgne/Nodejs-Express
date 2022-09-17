@@ -6,7 +6,7 @@ const {
   replace,
   update,
   remove,
-} = require('../controllers/cups-controller');
+} = require('../controllers/products-controller');
 
 const productsRouter = Router();
 
