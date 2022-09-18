@@ -26,7 +26,7 @@ try {
   server.use('/dad-jokes', dadJokesRouter);
   server.use('/products', productsRouter);
 
-  const connection = mongoose.connect(DB_CONNECTION_ADMIN, (err) => {
+  mongoose.connect(DB_CONNECTION_ADMIN, (err) => {
       if(err){
         throw err.message;
       }
@@ -40,6 +40,7 @@ try {
         console.log(`server launched on ${SERVER_PROTOCOL}://${SERVER_DOMAIN}:${SERVER_PORT}`);
       });
     });
+    
   } catch (err) {
   console.error(err.message);
 };
