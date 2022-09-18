@@ -1,5 +1,5 @@
 const { removeEmptyProps } = require('../helpers');
-const { RequestError, createBadDataError, createNotFoundError, sendErrorResponse } = require('../helpers/errors/index')
+const { createBadDataError, createNotFoundError, sendErrorResponse } = require('../helpers/errors/index')
 const ProductModel = require('../models/product-model')
 
 const isValidProduct = ({ title, description, categoryId, price, img }) =>
@@ -15,7 +15,7 @@ const createProductBadDataError = (dataObj) => createNotFoundError(`Product data
 const fetchAll = async (req, res) => {
   try {
     const productDocuments = await ProductModel.find();
-    
+
     res.status(200).json(productDocuments);
   } catch (err) { sendErrorResponse(err, res) }
 };
