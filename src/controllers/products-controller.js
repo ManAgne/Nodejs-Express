@@ -2,13 +2,6 @@ const { removeEmptyProps } = require('../helpers');
 const { createBadDataError, createNotFoundError, sendErrorResponse } = require('../helpers/errors/index')
 const ProductModel = require('../models/product-model')
 
-const isValidProduct = ({ title, description, categoryId, price, img }) =>
-  title !== undefined && typeof title === 'string' && title !== '' &&
-  description !== undefined && typeof description === 'string' && description !== '' &&
-  categoryId !== undefined && typeof categoryId === 'string' && categoryId !== '' &&
-  price !== undefined && typeof price === 'number' && price > 0 &&
-  img !== undefined && typeof img === 'string' && img !== '';
-
 const createProductNotFoundError = (productId) => createBadDataError(`Product with id '${productId}' was not found`);
 const createProductBadDataError = (dataObj) => createNotFoundError(`Product data is invalid:\n${JSON.stringify(dataObj, null, 4)}`);
 
@@ -35,7 +28,7 @@ const create = async (req, res) => {
   const newProductData = req.body;
 
   try {
-    if (!isValidProduct(newProductData)) throw createProductBadDataError(newProductData);
+    ProductModel.validate(newProductData);
 
     const newProduct = await ProductModel.create(newProductData)
 
@@ -50,7 +43,7 @@ const replace = async (req, res) => {
   const newProductData = { title, description, categoryId, img, price };
 
   try {
-    if (!isValidProduct(newProductData)) throw createProductBadDataError(newProductData);
+    ProductModel.validate(newProductData);
 
     const updatedProduct = await ProductModel.findByIdAndUpdate(
       productId, 
