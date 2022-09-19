@@ -1,9 +1,8 @@
 const { removeEmptyProps } = require('../helpers');
-const { createBadDataError, createNotFoundError, sendErrorResponse } = require('../helpers/errors/index')
+const { createNotFoundError, sendErrorResponse } = require('../helpers/errors')
 const ProductModel = require('../models/product-model')
 
-const createProductNotFoundError = (productId) => createBadDataError(`Product with id '${productId}' was not found`);
-const createProductBadDataError = (dataObj) => createNotFoundError(`Product data is invalid:\n${JSON.stringify(dataObj, null, 4)}`);
+const createProductNotFoundError = (productId) => createNotFoundError(`Product with id '${productId}' was not found`);
 
 const fetchAll = async (req, res) => {
   try {
@@ -54,15 +53,7 @@ const replace = async (req, res) => {
 
     res.status(200).json(updatedProduct)
 
-  } catch (error) {
-    const { status, message } = error;
-
-    if(status && message){
-      res.status(status).json({ message });
-    } else {
-      res.status(400).json({ message: error.message })
-    }
-  }
+  } catch (err) { sendErrorResponse(err, res) }
 };
 
 const update = async (req, res) => {
@@ -71,6 +62,8 @@ const update = async (req, res) => {
   const newProductData = removeEmptyProps({ title, description, categoryId, img, price });
 
   try {
+    ProductModel.validateUpdate(newProductData);
+
     const updatedProduct = await ProductModel.findByIdAndUpdate(
       productId, 
       newProductData, 

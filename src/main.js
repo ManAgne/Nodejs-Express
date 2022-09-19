@@ -4,7 +4,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const dadJokesRouter = require('./routers/dad-jokes-router');
 const productsRouter = require('./routers/products-router');
 
 const server = express();
@@ -23,7 +22,6 @@ try {
   server.use(cors());
 
   // Routes
-  server.use('/dad-jokes', dadJokesRouter);
   server.use('/products', productsRouter);
 
   mongoose.connect(DB_CONNECTION_ADMIN, (err) => {
