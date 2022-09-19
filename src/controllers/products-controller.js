@@ -6,7 +6,9 @@ const createProductNotFoundError = (productId) => createNotFoundError(`Product w
 
 const fetchAll = async (req, res) => {
   try {
-    const productDocuments = await ProductModel.find();
+    const productDocuments = joinBy === 'categoryId'
+      ? await ProductModel.find().populate('categoryId')
+      : await ProductModel.find();
 
     res.status(200).json(productDocuments);
   } catch (err) { sendErrorResponse(err, res) }
@@ -16,7 +18,9 @@ const fetch = async (req, res) => {
   const productId = req.params.id;
 
   try {
-    const foundProduct = await ProductModel.findById(productId);
+    const foundProduct = joinBy === 'categoryId'
+      ? await ProductModel.findById().populate('categoryId')
+      : await ProductModel.findById();
     if (foundProduct === null) throw createProductNotFoundError(productId);
 
     res.status(200).json(foundProduct);

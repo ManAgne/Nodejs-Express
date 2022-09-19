@@ -1,26 +1,27 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types, model } = require('mongoose');
 const yup = require('yup');
 
 const productSchema = Schema({
     title: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     description: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     categoryId: {
-        type: String,
-        required: true,
+      type: Schema.Types.ObjectId,
+      ref: 'Category',
+      required: true,
     },
     price: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
     img: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
 }, {
     timeStamps: true
@@ -34,8 +35,13 @@ const productValidationSchema = yup.object().shape({
     .string().typeError('Product.description must be a string')
     .required('Product.description is required'),
   categoryId: yup
-    .string().typeError('Product.categoryId must be a string')
-    .required('Product.categoryId is required'),
+    .string().typeError('Cup.categoryId must be a string')
+    .test(
+      'is-mongo-object-id',
+      'Cup.categoryId must be valid MongoDB object Id',
+      Types.ObjectId.isValid
+    )
+    .required('Cup.categoryId is required'),
   img: yup
     .string().typeError('Product.img must be a string')
     .required('Product.img is required'),
@@ -48,7 +54,12 @@ const productValidationSchema = yup.object().shape({
 const productUpdateValidationSchema = yup.object().shape({
   title: yup.string().typeError('Product.title must be a string'),
   description: yup.string().typeError('Product.description must be a string'),
-  categoryId: yup.string().typeError('Product.categoryId must be a string'),
+  categoryId: yup.string().typeError('Cup.categoryId must be a string')
+    .test(
+      'is-mongo-object-id',
+      'Cup.categoryId must be valid MongoDB object Id',
+      Types.ObjectId.isValid
+    ),
   img: yup.string().typeError('Product.img must be a string'),
   price: yup.number()
     .typeError('Product.price must be a number')
