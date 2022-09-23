@@ -1,0 +1,162 @@
+{
+  "products": [
+    {
+      "id": "f_moist_1",
+      "title": "24-Hour Replenishing",
+      "description": "A richly hydrating 1 cream to leave skin feeling replenished and soft. Myrrh, Frankincense and Neroli replenish, while Vitamin E helps protect the skin barrier. Nourishing Evening Primrose and Jojoba also work to deeply moisturise leaving skin silky smooth.",
+      "categoryId": 1,
+      "price": 36,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226493-2104858624896150.jpg"
+    },
+    {
+      "id": "f_moist_2",
+      "title": "Tri-Active™ Lift & Firm Moisturiser",
+      "description": "An intensely nourishing hydrator, our Tri-Active Lift &Firm Moisturiser boasts nutrient-rich Marine and Plant Actives for soft, supple, and plumped looking skin. This comforting formula hydrates and nourishes dull, sallow complexions. A rich whipped cream that brings you smooth petal-soft skin boosted with brightness.",
+      "categoryId": 1,
+      "price": 42,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226503-1944858828507032.jpg"
+    },
+    {
+      "id": "f_moist_3",
+      "title": "24-Hour Balancing Moisturiser",
+      "description": "A gentle oil-balancing moisturiser to help hydrate and clarify the skin. White Thyme helps balance and calming Lavender and Chamomile soothe, while nutrient rich plant extracts and Irish Moss moisturise and protect without clogging pores.",
+      "categoryId": 1,
+      "price": 36,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226495-1204768401944547.jpg"
+    },
+    {
+      "id": "f_serum_4",
+      "title": "Repair & Restore Intensive",
+      "description": "A potent serum that helps soothe and restore moisture. Wheatgerm helps protect the skin against environmental aggressors. Inca Inchi Oil restores moisture balance while Canola and Wild Indigo protect and soothe, helping boost skin's natural moisture barrier.",
+      "categoryId": 2,
+      "price": 37,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226536-1294768405896744.jpg"
+    },
+    {
+      "id": "f_serum_5",
+      "title": "Tri-Active™ Lift & Firm Intensive Serum",
+      "description": "ESPA's Tri-Active™ Lift and Firm Intensive Serum tightens and brightens the skin, super-charged with exclusive Wild Olive. This age-defying concentrate helps visibly restore skin's firmness, elasticity, and bounce - bringing you youthful skin with a radiant lit-from-within glow. Our super serum leaves skin feeling plump and supple.",
+      "categoryId": 2,
+      "price": 45,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226501-5134858828395924.jpg"
+    },
+    {
+      "id": "f_serum_6",
+      "title": "Optimal Skin Pro-Serum",
+      "description": "This nutrient-rich, glow-giving serum hydrates and nourishes the skin with supercharged natural actives. Used daily, this intensely revitalising serum helps to nurture and protect skin's natural moisture barrier so that even sensitive skin feels nurtured and emits a healthy-looking radiance. ",
+      "categoryId": 2,
+      "price": 37,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12595874-1204840384746024.jpg"
+    },
+    {
+      "id": "f_mask_7",
+      "title": "Clean & Green Detox Mask",
+      "description": "Restore your radiance and give tired, dull complexions a dose of goodness with this veggie-inspired detox mask. A green smoothie for the skin, this creamy clay formula is packed with plant-based, nutrient-dense greens to help reset skin. Feeling fresh without feeling dry, the greens in this mask are ready to help you glow.",
+      "categoryId": 3,
+      "price": 30,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12595883-9264840384960656.jpg"
+    },
+    {
+      "id": "f_mask_8",
+      "title": "Clarifying Clay Mineral Mask",
+      "description": "A cleansing, mineral-rich clay mask that helps to balance excess oils, leaving the skin feeling purified and soothed with hydration.   Kaolin Clay and Rose Geranium help clear excess oils, impurities and congestion, Benzoin nourishes, while soothing Rose Damascena and Marshmallow softens and calms.",
+      "categoryId": 3,
+      "price": 32,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226487-7224768400982303.jpg"
+    },
+    {
+      "id": "f_mask_9",
+      "title": "Tri-Active™ Regenerating Phyto-Collagen Plumping Mask",
+      "description": "This intensely hydrating mask plumps and smooths, to soften and even the appearance of lines and wrinkles. Discover instant results with this skincare saviour for weary skin. Perfect for night-owls and everyone in need of a skin-refresh, this mask revives lacklustre complexions with rich conditioning properties.",
+      "categoryId": 3,
+      "price": 34,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12595885-2124907549317377.jpg"
+    },
+    {
+      "id": "b_exfo_10",
+      "title": "Detoxifying Salt Scrub",
+      "description": "A deeply cleansing body scrub that refines, smooths and clarifies, for intensely hydrated and replenished skin. Natural Sea Salts sweep away dry, dull skin, Grapefruit, Cypress and Eucalyptus cleanses while Sweet Almond Oil nourishes and hydrates.",
+      "categoryId": 4,
+      "price": 28,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226505-1944858625105160.jpg"
+    },
+    {
+      "id": "b_exfo_11",
+      "title": "Relaxing Salt Scrub",
+      "description": "A soothing body scrub to nourish, refine and hydrate, leaving skin soft and glowing. Natural Sea Salts sweep away dry, dull skin, Sweet Almond Oil nourishes and hydrates while Bay and Lavender calm the senses.",
+      "categoryId": 4,
+      "price": 28,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226535-9534788608232561.jpg"
+    },
+    {
+      "id": "b_exfo_12",
+      "title": "Exfoliating Body Polish - Jar",
+      "description": "A cooling and revitalising body scrub to refine, smooth and refresh skin, while helping to boost hydration. Apricot Seed Kernels gently sweep away dry, dull skin, Spearmint cools and refreshes while Aloe Vera hydrates and conditions.",
+      "categoryId": 4,
+      "price": 30,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226497-8984858624930659.jpg"
+    },
+    {
+      "id": "b_moist_13",
+      "title": "Smooth & Firm Body Butter",
+      "description": "A rich body butter to help nourish, smooth and tone, leaving skin feeling soft and flexible. Hydrating Larch and Pumpkin Seed Extract help smooth while Rosehip, Argan Oil and Vitamin E moisturise and nourish.",
+      "categoryId": 1,
+      "price": 30,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226547-1304911467559639.jpg"
+    },
+    {
+      "id": "b_moist_14",
+      "title": "Bergamot & Jasmine Body Lotion",
+      "description": "A beautifully light body lotion that moisturises, nourishes and softens every day. Infused with a luxurious blend of pure essential oils including Bergamot and Jasmine, to leave the skin delicately fragranced and beautifully soft.",
+      "categoryId": 1,
+      "price": 30,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226516-1404768403621235.jpg"
+    },
+    {
+      "id": "b_moist_15",
+      "title": "Cooling Body Moisturiser",
+      "description": "A light cream-gel body moisturiser to instantly soothe and refresh the skin with moisture. Calming Aloe and Ayurvedic Boerhavia gently soothe and hydrate, Hyaluronic Acid and Sunflower Concentrate provide long-lasting moisturisation, while a cooling Menthol complex refreshes the skin.",
+      "categoryId": 1,
+      "price": 30,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12226508-9464768403240793.jpg"
+    },
+    {
+      "id": "b_oil_16",
+      "title": "Positivity Bath & Body Oil",
+      "description": "Our Signature Blends Bath & Body Oils harness the power of aromatherapy to elevate each moment with sensorial connection. Fragrance blends composed from pure essential oils that complement your moods and indulge the skin. The Positivity Blend features Jasmine, Gardenia, and Rose Geranium to provide a burst of joy, while the vibrancy of Bergamot and Sweet Orange uplift the spirit.",
+      "categoryId": 5,
+      "price": 28,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12062213-3934947263603745.jpg"
+    },
+    {
+      "id": "b_oil_17",
+      "title": "Energising Bath & Body Oil",
+      "description": "Our Signature Blends Bath & Body Oils harness the power of aromatherapy to elevate each moment with sensorial connection. Fragrance blends composed from pure essential oils that complement your moods and indulge the skin. The Energising Signature Blend - an enlivening blend of stimulating Peppermint, refreshing Eucalyptus, and clarifying Rosemary. Fight fatigue and recharge the senses.",
+      "categoryId": 5,
+      "price": 26,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12589971-1024942865333355.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "moisturiser"
+    },
+    {
+      "id": 2,
+      "title": "serum"
+    },
+    {
+      "id": 3,
+      "title": "mask"
+    },
+    {
+      "id": 4,
+      "title": "exfoliator"
+    },
+    {
+      "id": 5,
+      "title": "oil"
+    }
+  ]
+}

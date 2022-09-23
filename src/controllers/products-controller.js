@@ -5,6 +5,8 @@ const ProductModel = require('../models/product-model')
 const createProductNotFoundError = (productId) => createNotFoundError(`Product with id '${productId}' was not found`);
 
 const fetchAll = async (req, res) => {
+  const { joinBy } = req.query;
+
   try {
     const productDocuments = joinBy === 'categoryId'
       ? await ProductModel.find().populate('categoryId')
@@ -16,11 +18,12 @@ const fetchAll = async (req, res) => {
 
 const fetch = async (req, res) => {
   const productId = req.params.id;
+  const { joinBy } = req.query;
 
   try {
     const foundProduct = joinBy === 'categoryId'
-      ? await ProductModel.findById().populate('categoryId')
-      : await ProductModel.findById();
+      ? await ProductModel.findById(productId).populate('categoryId')
+      : await ProductModel.findById(productId);
     if (foundProduct === null) throw createProductNotFoundError(productId);
 
     res.status(200).json(foundProduct);
